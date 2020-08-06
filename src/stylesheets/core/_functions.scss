@@ -1,0 +1,5 @@
+$defaultSize: 16;
+
+@function rem($pixels) {
+  @return ($pixels / $defaultSize * 1rem);
+}

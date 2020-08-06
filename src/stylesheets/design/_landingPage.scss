@@ -1,0 +1,26 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $color-light;
+  &__title {
+    font-size: 3em;
+  }
+
+  &__img {
+    width: 300px;
+    &:hover {
+      animation: roll 2s infinite;
+
+      @keyframes roll {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
