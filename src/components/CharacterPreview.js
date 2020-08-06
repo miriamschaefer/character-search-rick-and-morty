@@ -2,10 +2,14 @@ import React from 'react';
 
 class CharacterPreview extends React.Component {
   render() {
+    const { name, url, species, gender, status, id } = this.props;
     return (
-      <li id={this.props.id}>
-        <h2>{this.props.name}</h2>
-        <img src={this.props.url} alt={this.props.name} />
+      <li key={id} id={id}>
+        <h2>{name}</h2>
+        <p>{status}</p>
+        <p>{gender}</p>
+        <p>{species}</p>
+        <img src={url} alt={name} />
       </li>
     );
   }

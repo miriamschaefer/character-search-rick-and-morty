@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import '../stylesheets/App.scss';
+import getInfo from '../services/Api';
 import LandingPage from './LandingPage';
 import Header from './Header';
 import CharacterList from './CharacterList';
-import CharacterPreview from './CharacterPreview';
-import getInfo from '../services/Api';
+import CharacterInfo from './CharacterInfo';
 
+//COMPONENTE FUNCIONAL
 // const App = () => {
 //   const [characters, setCharacters] = useState([]);
 
@@ -33,6 +35,7 @@ class App extends React.Component {
     this.state = {
       characters: [],
     };
+    this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
   }
 
   componentDidMount() {
@@ -43,13 +46,42 @@ class App extends React.Component {
     });
   }
 
+  renderCharacterInfo(props) {
+    console.log(props.match.params.id);
+
+    const character = this.state.characters.find(
+      (character) => character.id === props.match.params.id
+    );
+
+    console.log(character);
+
+    if (character) {
+      return (
+        <CharacterInfo
+          id={character.id}
+          name={character.name}
+          url={character.image}
+          gender={character.gender}
+          species={character.species}
+          status={character.status}
+        />
+      );
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <LandingPage />
         <CharacterList characters={this.state.characters} />
-        <CharacterPreview />
+        <Switch>
+          <Route
+            exact
+            path="/character/:id"
+            render={this.renderCharacterInfo}
+          />
+        </Switch>
       </div>
     );
   }

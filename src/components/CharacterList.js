@@ -4,20 +4,21 @@ import CharacterPreview from './CharacterPreview';
 class CharacterList extends React.Component {
   render() {
     const characterResult = this.props.characters.map((character) => {
+      const { name, id, species, image, status, gender } = character;
       return (
         <CharacterPreview
-          key={character.id}
-          id={character.id}
-          name={character.name}
-          gender={character.gender}
-          url={character.image}
-          status={character.status}
-          species={character.species}
+          key={id}
+          id={id}
+          name={name}
+          url={image}
+          species={species}
+          status={status}
+          gender={gender}
         />
       );
     });
 
-    return <ul className="App__container">{characterResult}</ul>;
+    return <ul className="">{characterResult}</ul>;
   }
 }
 
