@@ -6,7 +6,7 @@ class Header extends React.Component {
     return (
       <div className="header">
         <div className="header__logo">
-          <img src={Logo} />
+          <img src={Logo} alt="Rick and Morty logo" />
         </div>
       </div>
     );
