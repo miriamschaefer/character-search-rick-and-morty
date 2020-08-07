@@ -1,10 +1,94 @@
 .character {
   width: 100vw;
-  .character__info {
+  height: 100vh;
+  color: $color-dark;
+
+  &__card {
+    position: absolute;
+    border-radius: 25px;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
     align-items: center;
     width: 500px;
+    padding: 15px;
     background-color: greenyellow;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    &__img {
+      width: 200px;
+      margin-left: 25px;
+
+      @include media($desktop) {
+        height: 300px;
+        width: 300px;
+        margin-left: 0;
+      }
+
+      & img {
+        width: 100%;
+        object-fit: cover;
+
+        @include media($desktop) {
+          height: 300px;
+          width: 300px;
+          margin-left: 0;
+        }
+      }
+
+      &__close-icon {
+        grid-column: span 2;
+      }
+    }
+
+    @include media($desktop) {
+      position: fixed;
+      top: 0;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 500px;
+      transform: translate(0%, 0%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      border-radius: 0;
+    }
+  }
+}
+
+.navigation {
+  margin-top: 60px;
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__img {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 100px;
+
+    @include media($desktop) {
+      height: 150px;
+    }
+
+    & img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  & .fa {
+    color: $color-dark;
+    font-size: rem(20);
+
+    @include media($desktop) {
+      font-size: rem(32);
+    }
   }
 }

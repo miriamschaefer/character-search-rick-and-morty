@@ -109,7 +109,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <LandingPage />
+        {/* <LandingPage /> */}
         <Header />
         <Search
           handleSearch={this.handleSearch}
