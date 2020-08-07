@@ -7,11 +7,13 @@ class CharacterInfo extends Component {
     const { id, name, status, gender, species, image } = this.props;
     return (
       <li className="character__info" id={id}>
-        <p>{name}</p>
-        <p>{status}</p>
-        <p>{gender}</p>
-        <p>{species}</p>
         <img src={image} alt={name} />
+        <div>
+          <p>{name}</p>
+          <p>{status}</p>
+          <p>{gender}</p>
+          <p>{species}</p>
+        </div>
       </li>
     );
   }

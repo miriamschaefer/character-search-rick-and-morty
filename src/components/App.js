@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import '../stylesheets/App.scss';
 import getInfo from '../services/Api';
 import LandingPage from './LandingPage';
@@ -49,8 +49,14 @@ class App extends React.Component {
     });
   }
 
-  renderCharacterInfo() {
-    const character = this.state.characters[1];
+  renderCharacterInfo(props) {
+    console.log(props.match.params.id);
+    const characterId = props.match.params.id;
+    const character = this.state.characters.find(
+      (character) => character.id === parseInt(characterId)
+    );
+
+    console.log(character);
     if (character) {
       return (
         <CharacterInfo
@@ -67,33 +73,10 @@ class App extends React.Component {
     }
   }
 
-  // renderCharacterInfo(props) {
-  // console.log(props.match.params.id);
-
-  // const character = this.state.characters.find(
-  //   (character) => character.id === props.match.params.id
-  // );
-
-  // console.log(character);
-
-  //   if (character) {
-  //     return (
-  //       <CharacterInfo
-  //         id={character.id}
-  //         name={character.name}
-  //         url={character.image}
-  //         gender={character.gender}
-  //         species={character.species}
-  //         status={character.status}
-  //       />
-  //     );
-  //   }
-  // }
-
   //SEARCH AND FILTERS
 
   handleSearch(data) {
-    console.log('holi', data);
+    console.log(data);
     this.setState({
       [data.key]: data.value,
     });
@@ -117,14 +100,13 @@ class App extends React.Component {
           searchText={this.state.searchText}
         />
         <CharacterList characters={this.renderSearch()} />
-        {this.renderCharacterInfo()}
-        {/* <Switch>
+        <Switch>
           <Route
             exact
             path="/character/:id"
             render={this.renderCharacterInfo}
           />
-        </Switch> */}
+        </Switch>
       </div>
     );
   }
