@@ -1,11 +1,12 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+// import { Route, Switch } from 'react-router-dom';
 import '../stylesheets/App.scss';
 import getInfo from '../services/Api';
 import LandingPage from './LandingPage';
 import Header from './Header';
 import CharacterList from './CharacterList';
-import CharacterInfo from './CharacterInfo';
+// import CharacterInfo from './CharacterInfo';
+import Search from './Search';
 
 //COMPONENTE FUNCIONAL
 // const App = () => {
@@ -34,8 +35,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       characters: [],
+      searchText: '',
     };
-    this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
+    // this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
@@ -46,27 +49,44 @@ class App extends React.Component {
     });
   }
 
-  renderCharacterInfo(props) {
-    console.log(props.match.params.id);
+  // renderCharacterInfo(props) {
+  // console.log(props.match.params.id);
 
-    const character = this.state.characters.find(
-      (character) => character.id === props.match.params.id
-    );
+  // const character = this.state.characters.find(
+  //   (character) => character.id === props.match.params.id
+  // );
 
-    console.log(character);
+  // console.log(character);
 
-    if (character) {
-      return (
-        <CharacterInfo
-          id={character.id}
-          name={character.name}
-          url={character.image}
-          gender={character.gender}
-          species={character.species}
-          status={character.status}
-        />
-      );
-    }
+  //   if (character) {
+  //     return (
+  //       <CharacterInfo
+  //         id={character.id}
+  //         name={character.name}
+  //         url={character.image}
+  //         gender={character.gender}
+  //         species={character.species}
+  //         status={character.status}
+  //       />
+  //     );
+  //   }
+  // }
+
+  //SEARCH AND FILTERS
+
+  handleSearch(data) {
+    console.log('holi', data);
+    this.setState({
+      [data.key]: data.value,
+    });
+  }
+
+  renderSearch() {
+    const filteredCharacters = this.state.characters;
+
+    return filteredCharacters.filter((character) => {
+      return character.name.toLowerCase().includes(this.state.searchText);
+    });
   }
 
   render() {
@@ -74,14 +94,18 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <LandingPage />
-        <CharacterList characters={this.state.characters} />
-        <Switch>
+        <Search
+          handleSearch={this.handleSearch}
+          searchText={this.state.searchText}
+        />
+        <CharacterList characters={this.renderSearch()} />
+        {/* <Switch>
           <Route
             exact
             path="/character/:id"
             render={this.renderCharacterInfo}
           />
-        </Switch>
+        </Switch> */}
       </div>
     );
   }
