@@ -1,7 +1,10 @@
-.character__info {
-  align-items: center;
-  width: 500px;
-  background-color: greenyellow;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.character {
+  width: 100vw;
+  .character__info {
+    align-items: center;
+    width: 500px;
+    background-color: greenyellow;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -67,6 +67,8 @@ class App extends React.Component {
           gender={character.gender}
           species={character.species}
           status={character.status}
+          origin={character.origin.name}
+          episodes={character.episode.length}
         />
       );
     } else {
