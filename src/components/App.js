@@ -7,6 +7,7 @@ import Header from './Header';
 import CharacterList from './CharacterList';
 import CharacterInfo from './CharacterInfo';
 import Search from './Search';
+import Error from './Error';
 
 //COMPONENTE FUNCIONAL
 // const App = () => {
@@ -69,7 +70,7 @@ class App extends React.Component {
         />
       );
     } else {
-      return 'No existe';
+      return <Error />;
     }
   }
 
@@ -84,7 +85,6 @@ class App extends React.Component {
 
   renderSearch() {
     const filteredCharacters = this.state.characters;
-
     return filteredCharacters.filter((character) => {
       return character.name.toLowerCase().includes(this.state.searchText);
     });
