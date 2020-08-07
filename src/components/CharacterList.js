@@ -18,7 +18,7 @@ class CharacterList extends React.Component {
       );
     });
 
-    return <ul className="">{characterResult}</ul>;
+    return <ul className="character__list">{characterResult}</ul>;
   }
 }
 

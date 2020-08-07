@@ -4,3 +4,9 @@ body {
   padding-top: 20px;
   background-color: $color-dark;
 }
+
+.character__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: $color-light;
+}
