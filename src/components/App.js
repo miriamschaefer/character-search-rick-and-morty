@@ -48,6 +48,15 @@ class App extends React.Component {
         characters: data,
       });
     });
+
+    const retrieveInputText = localStorage.getItem('userSearch');
+    if (retrieveInputText) {
+      this.setState({ searchText: retrieveInputText });
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('userSearch', this.state.searchText);
   }
 
   renderCharacterInfo(props) {

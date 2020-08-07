@@ -5,7 +5,7 @@ class Error extends Component {
   render() {
     return (
       <div>
-        <p>Aquí no hay na</p>
+        <p>Nothing to see here...</p>
       </div>
     );
   }
