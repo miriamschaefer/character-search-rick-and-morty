@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Error extends Component {
   render() {
     return (
-      <div>
+      <div className="error">
         <p>Nothing to see here...</p>
       </div>
     );

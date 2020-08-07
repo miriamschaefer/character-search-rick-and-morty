@@ -96,9 +96,14 @@ class App extends React.Component {
 
   renderSearch() {
     const filteredCharacters = this.state.characters;
-    return filteredCharacters.filter((character) => {
-      return character.name.toLowerCase().includes(this.state.searchText);
-    });
+
+    if (filteredCharacters) {
+      return filteredCharacters.filter((character) => {
+        return character.name.toLowerCase().includes(this.state.searchText);
+      });
+    } else {
+      return <Error />;
+    }
   }
 
   render() {
