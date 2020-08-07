@@ -2,19 +2,11 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 
 class CharacterInfo extends Component {
-  // console.log(props);
   render() {
-    const {
-      id,
-      name,
-      status,
-      gender,
-      species,
-
-      image,
-    } = this.props.character;
+    console.log(this.props);
+    const { id, name, status, gender, species, image } = this.props;
     return (
-      <li id={id}>
+      <li className="character__info" id={id}>
         <p>{name}</p>
         <p>{status}</p>
         <p>{gender}</p>

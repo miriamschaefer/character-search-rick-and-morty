@@ -5,7 +5,7 @@ import getInfo from '../services/Api';
 import LandingPage from './LandingPage';
 import Header from './Header';
 import CharacterList from './CharacterList';
-// import CharacterInfo from './CharacterInfo';
+import CharacterInfo from './CharacterInfo';
 import Search from './Search';
 
 //COMPONENTE FUNCIONAL
@@ -37,7 +37,7 @@ class App extends React.Component {
       characters: [],
       searchText: '',
     };
-    // this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
+    this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -47,6 +47,24 @@ class App extends React.Component {
         characters: data,
       });
     });
+  }
+
+  renderCharacterInfo() {
+    const character = this.state.characters[1];
+    if (character) {
+      return (
+        <CharacterInfo
+          id={character.id}
+          name={character.name}
+          image={character.image}
+          gender={character.gender}
+          species={character.species}
+          status={character.status}
+        />
+      );
+    } else {
+      return 'No existe';
+    }
   }
 
   // renderCharacterInfo(props) {
@@ -99,6 +117,7 @@ class App extends React.Component {
           searchText={this.state.searchText}
         />
         <CharacterList characters={this.renderSearch()} />
+        {this.renderCharacterInfo()}
         {/* <Switch>
           <Route
             exact

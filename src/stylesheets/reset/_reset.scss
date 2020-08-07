@@ -353,6 +353,9 @@ template {
 * {
   list-style: none;
   padding: 0;
+  &:focus {
+    outline: none;
+  }
 }
 
 h1,
