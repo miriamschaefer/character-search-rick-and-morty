@@ -8,10 +8,17 @@ class Search extends Component {
   }
 
   renderSearchChild(ev) {
+    ev.preventDefault();
     this.props.handleSearch({
       key: 'searchText',
       value: ev.target.value,
     });
+  }
+
+  handleSubmit(ev) {
+    if (ev.key === 'Enter') {
+      ev.preventDefault();
+    }
   }
 
   render() {
@@ -24,6 +31,7 @@ class Search extends Component {
           placeholder="Search your fav character"
           onChange={this.renderSearchChild}
           value={this.props.searchText}
+          onKeyPress={this.handleSubmit}
         />
       </form>
     );
