@@ -109,8 +109,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
         <LandingPage />
+        <Header />
         <Search
           handleSearch={this.handleSearch}
           searchText={this.state.searchText}

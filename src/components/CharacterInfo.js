@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import imgError from '../images/rick-morty-error.png';
 class CharacterInfo extends Component {
   handleModalContent(ev) {
     ev.preventDefault();
+  }
+
+  renderStatusEmoji(status) {
+    if (status === 'Alive') {
+      return '🌝';
+    } else if (status === 'Dead') {
+      return '💀';
+    } else {
+      return '❓';
+    }
   }
   render() {
     console.log(this.props);
@@ -27,16 +37,27 @@ class CharacterInfo extends Component {
           >
             <img src={image} alt={name} />
             <div>
-              <p>{name}</p>
-              <p>{status}</p>
-              <p>{gender}</p>
-              <p>{species}</p>
-              <p>{origin}</p>
-              <p>{episodes}</p>
+              <p>Full Name: {name}</p>
+              <p>Status: {this.renderStatusEmoji(status)}</p>
+              <p>Gender: {gender}</p>
+              <p>Species: {species === 'Alien' ? '👽' : '🕺🏻'}</p>
+              <p>Origin: {origin}</p>
+              <p>It appears in {episodes} episodes.</p>
               <Link to="/">
                 <p>Cerrar</p>
               </Link>
             </div>
+            <Link to={`/character/${id - 1}`}>
+              <i className="fa fa-arrow-left" aria-hidden="true"></i>
+            </Link>
+            <Link to="/characters">
+              <li>
+                <img src={imgError} alt="Rick and Morty" />
+              </li>
+            </Link>
+            <Link to={`/character/${id + 1}`}>
+              <i className="fa fa-arrow-right" aria-hidden="true"></i>
+            </Link>
           </li>
         </div>
       </Link>
