@@ -3,20 +3,24 @@ import Header from './Header';
 import Search from './Search';
 import CharacterList from './CharacterList';
 
-class LandingPage extends React.Component {
+class Main extends React.Component {
   render() {
+    console.log(this.props);
     return (
-      <div className="main">
+      <>
         <Header />
-        <h1 className="main__title">Welcome</h1>
-        <Search
-          handleSearch={this.handleSearch}
-          searchText={this.state.searchText}
-        />
-        <CharacterList characters={this.renderSearch()} />
-      </div>
+        <main className="main">
+          <h1>Sometimes science is more art than science</h1>
+          <Search
+            handleSearch={this.props.handleSearch}
+            handleFilterStatus={this.props.handleFilterStatus}
+            searchText={this.props.searchText}
+          />
+          <CharacterList characters={this.props.characters} />
+        </main>
+      </>
     );
   }
 }
 
-export default LandingPage;
+export default Main;

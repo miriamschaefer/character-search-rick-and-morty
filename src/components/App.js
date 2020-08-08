@@ -2,12 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../stylesheets/App.scss';
 import getInfo from '../services/Api';
-// import LandingPage from './LandingPage';
-import Header from './Header';
-import CharacterList from './CharacterList';
+import LandingPage from './LandingPage';
 import CharacterInfo from './CharacterInfo';
-import Search from './Search';
 import Error from './Error';
+import Main from './Main';
 
 //COMPONENTE FUNCIONAL
 // const App = () => {
@@ -42,6 +40,7 @@ class App extends React.Component {
     this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleFilterStatus = this.handleFilterStatus.bind(this);
+    this.getMain = this.getMain.bind(this);
   }
 
   componentDidMount() {
@@ -119,25 +118,30 @@ class App extends React.Component {
     }
   }
 
+  getMain() {
+    return (
+      <Main
+        handleSearch={this.handleSearch}
+        handleFilterStatus={this.handleFilterStatus}
+        searchText={this.state.searchText}
+        characters={this.renderSearch()}
+      />
+    );
+  }
+
   render() {
     return (
-      <div className="App">
-        {/* <LandingPage /> */}
-        <Header />
-        <Search
-          handleSearch={this.handleSearch}
-          handleFilterStatus={this.handleFilterStatus}
-          searchText={this.state.searchText}
-        />
-        <CharacterList characters={this.renderSearch()} />
+      <React.Fragment>
         <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/characters" render={this.getMain} />
           <Route
             exact
             path="/character/:id"
             render={this.renderCharacterInfo}
           />
         </Switch>
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -1,14 +1,17 @@
 import React from 'react';
 import Logo from '../images/logo.png';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   render() {
     return (
-      <div className="header">
+      <header className="header">
         <div className="header__logo">
-          <img src={Logo} alt="Rick and Morty logo" />
+          <Link to="/characters">
+            <img src={Logo} alt="Rick and Morty logo" />
+          </Link>
         </div>
-      </div>
+      </header>
     );
   }
 }

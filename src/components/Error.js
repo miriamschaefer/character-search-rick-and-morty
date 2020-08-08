@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 
 class Error extends Component {
   render() {
+    const data = this.props;
+
+    console.log(data);
     return (
       <div className="error">
-        <p>Nothing to see here...</p>
+        <p>{`Whatcha doin'? There's no character who matches your search.`}</p>
       </div>
     );
   }

@@ -10,7 +10,7 @@ class CharacterList extends React.Component {
       const characterResult = this.props.characters.map((character) => {
         const { name, id, species, image, status, gender } = character;
 
-        console.log('consoleando props', this.props.characters);
+        console.log('consoleando props characterlist', this.props.characters);
         return (
           <CharacterPreview
             key={id}
