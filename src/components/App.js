@@ -9,28 +9,6 @@ import CharacterInfo from './CharacterInfo';
 import Search from './Search';
 import Error from './Error';
 
-//COMPONENTE FUNCIONAL
-// const App = () => {
-//   const [characters, setCharacters] = useState([]);
-
-//   useEffect(() => {
-//     getInfo().then((data) => {
-//       setCharacters(data);
-//     });
-//   }, []);
-
-//   console.log(characters);
-
-//   return (
-//     <div className="App">
-//       <Header />
-//       <LandingPage />
-//       <CharacterList />
-//       <CharacterPreview />
-//     </div>
-//   );
-// };
-
 class App extends React.Component {
   constructor(props) {
     super(props);
