@@ -82,7 +82,12 @@ class App extends React.Component {
         />
       );
     } else {
-      return <Error />;
+      return (
+        <Error
+          handleSearch={this.handleSearch()}
+          searchText={this.state.searchText}
+        />
+      );
     }
   }
 
@@ -114,7 +119,12 @@ class App extends React.Component {
             : character.status === filterStatus;
         });
     } else {
-      return <Error />;
+      return (
+        <Error
+          handleSearch={this.handleSearch()}
+          searchText={this.state.searchText}
+        />
+      );
     }
   }
 
