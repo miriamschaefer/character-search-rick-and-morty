@@ -3,10 +3,15 @@ body {
   text-align: center;
   padding-top: 20px;
   background-color: $color-dark;
+  display: flex;
 }
 
 .character__list {
+  width: 100vw;
+  border: 1px solid greenyellow;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+
   color: $color-light;
 }

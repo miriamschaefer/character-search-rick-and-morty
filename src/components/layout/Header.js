@@ -6,11 +6,12 @@ class Header extends React.Component {
   render() {
     return (
       <header className="header">
-        <div className="header__logo">
-          <Link to="/mainpage">
+        <Link to="/mainpage">
+          <div className="header__logo">
+            {' '}
             <img src={Logo} alt="Rick and Morty logo" />
-          </Link>
-        </div>
+          </div>
+        </Link>
       </header>
     );
   }
