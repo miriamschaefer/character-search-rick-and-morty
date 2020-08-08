@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../images/logo.png';
+import Logo from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
@@ -7,7 +7,7 @@ class Header extends React.Component {
     return (
       <header className="header">
         <div className="header__logo">
-          <Link to="/characters">
+          <Link to="/mainpage">
             <img src={Logo} alt="Rick and Morty logo" />
           </Link>
         </div>

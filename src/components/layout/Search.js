@@ -57,6 +57,9 @@ class Search extends Component {
             <option value="unknown">❓ Unknown</option>
           </select>
         </div>
+        <button value="Reset form" onClick={this.props.resetAll}>
+          <i className="fas fa-times-circle"></i>
+        </button>
       </form>
     );
   }

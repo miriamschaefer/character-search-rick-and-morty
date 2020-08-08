@@ -34,7 +34,7 @@ class CharacterInfo extends Component {
             <img src={image} alt={name} />
           </div>
           <div className="character__card__close-icon">
-            <Link to="/characters">
+            <Link to="/mainpage">
               <i className="fas fa-times-circle"></i>
             </Link>
           </div>

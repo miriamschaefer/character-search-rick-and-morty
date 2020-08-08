@@ -1,6 +1,6 @@
 import React from 'react';
 import CharacterPreview from './CharacterPreview';
-import Error from './Error';
+import Error from './layout/Error';
 
 class CharacterList extends React.Component {
   render() {

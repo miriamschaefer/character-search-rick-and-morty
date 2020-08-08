@@ -1,11 +1,10 @@
 import React from 'react';
 import Header from './Header';
 import Search from './Search';
-import CharacterList from './CharacterList';
+import CharacterList from '../CharacterList';
 
 class Main extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <>
         <Header />
@@ -15,6 +14,7 @@ class Main extends React.Component {
             handleSearch={this.props.handleSearch}
             handleFilterStatus={this.props.handleFilterStatus}
             searchText={this.props.searchText}
+            resetAll={this.props.resetAll}
           />
           <CharacterList characters={this.props.characters} />
         </main>

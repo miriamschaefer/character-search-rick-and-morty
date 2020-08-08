@@ -7,12 +7,15 @@ class CharacterPreview extends React.Component {
 
     return (
       <Link to={`/character/${id}`}>
-        <li key={id} id={id}>
-          <h2>{name}</h2>
-
-          <p>{gender}</p>
-          <p>{species === 'Alien' ? '👽' : '🕺🏻'}</p>
-          <img src={url} alt={name} />
+        <li key={id} id={id} className="preview__card">
+          <h2 className="preview__card__title">{name}</h2>
+          <div className="preview__card__img">
+            <img src={url} alt={name} />
+          </div>
+          <div className="preview__card__info">
+            <p>{gender}</p>
+            <p>{species === 'Alien' ? '👽' : '🕺🏻'}</p>
+          </div>
         </li>
       </Link>
     );

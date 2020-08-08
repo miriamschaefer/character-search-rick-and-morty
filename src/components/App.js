@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../stylesheets/App.scss';
 import getInfo from '../services/Api';
-import LandingPage from './LandingPage';
+import LandingPage from './layout/LandingPage';
 import CharacterInfo from './CharacterInfo';
-import Error from './Error';
-import Main from './Main';
+import Main from './layout/Main';
+import Error from './layout/Error';
 
 //COMPONENTE FUNCIONAL
 // const App = () => {
@@ -41,6 +41,7 @@ class App extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleFilterStatus = this.handleFilterStatus.bind(this);
     this.getMain = this.getMain.bind(this);
+    this.resetAll = this.resetAll.bind(this);
   }
 
   componentDidMount() {
@@ -60,30 +61,11 @@ class App extends React.Component {
     localStorage.setItem('userSearch', this.state.searchText);
   }
 
-  renderCharacterInfo(props) {
-    console.log(props.match.params.id);
-    const characterId = props.match.params.id;
-    const character = this.state.characters.find(
-      (character) => character.id === parseInt(characterId)
-    );
-
-    console.log(character);
-    if (character) {
-      return (
-        <CharacterInfo
-          id={character.id}
-          name={character.name}
-          image={character.image}
-          gender={character.gender}
-          species={character.species}
-          status={character.status}
-          origin={character.origin.name}
-          episodes={character.episode.length}
-        />
-      );
-    } else {
-      return <Error />;
-    }
+  //RESET INPUTS
+  resetAll(ev) {
+    console.log(this.state.filterStatus);
+    ev.preventDefault();
+    this.setState({ searchText: '', filterStatus: 'All' });
   }
 
   //SEARCH AND FILTERS
@@ -113,11 +95,37 @@ class App extends React.Component {
             ? true
             : character.status === filterStatus;
         });
+    }
+  }
+  //RENDER CHARACTERS
+
+  renderCharacterInfo(props) {
+    console.log(props.match.params.id);
+    const characterId = props.match.params.id;
+    const character = this.state.characters.find(
+      (character) => character.id === parseInt(characterId)
+    );
+
+    console.log(character);
+    if (character) {
+      return (
+        <CharacterInfo
+          id={character.id}
+          name={character.name}
+          image={character.image}
+          gender={character.gender}
+          species={character.species}
+          status={character.status}
+          origin={character.origin.name}
+          episodes={character.episode.length}
+        />
+      );
     } else {
       return <Error />;
     }
   }
 
+  //RENDER MAINPAGE
   getMain() {
     return (
       <Main
@@ -125,6 +133,7 @@ class App extends React.Component {
         handleFilterStatus={this.handleFilterStatus}
         searchText={this.state.searchText}
         characters={this.renderSearch()}
+        resetAll={this.resetAll}
       />
     );
   }
@@ -134,7 +143,7 @@ class App extends React.Component {
       <React.Fragment>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/characters" render={this.getMain} />
+          <Route exact path="/mainpage" render={this.getMain} />
           <Route
             exact
             path="/character/:id"
