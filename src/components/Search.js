@@ -5,7 +5,7 @@ class Search extends Component {
     super(props);
 
     this.renderSearchChild = this.renderSearchChild.bind(this);
-    this.handleFilterSpeciesChild = this.handleFilterSpeciesChild.bind(this);
+    this.handleFilterStatusChild = this.handleFilterStatusChild.bind(this);
   }
 
   renderSearchChild(ev) {
@@ -16,9 +16,9 @@ class Search extends Component {
     });
   }
 
-  handleFilterSpeciesChild(ev) {
-    this.props.handleFilterSpecies({
-      key: 'filterSpecies',
+  handleFilterStatusChild(ev) {
+    this.props.handleFilterStatus({
+      key: 'filterStatus',
       value: ev.target.value,
     });
   }
@@ -42,18 +42,19 @@ class Search extends Component {
           onKeyPress={this.handleSubmit}
         />
         <div>
-          <label htmlFor="filterSpecies" className="form__label">
-            Species:
+          <label htmlFor="filterStatus" className="form__label">
+            Status:
           </label>
           <select
-            id="filterSpecies"
+            id="filterStatus"
             className="form__input-text"
             value={this.props.filterPrice}
-            onChange={this.handleFilterSpeciesChild}
+            onChange={this.handleFilterStatusChild}
           >
             <option value="All">👯‍♀️ All</option>
-            <option value="Human">🕺🏻 Human</option>
-            <option value="Alien">👽 Alien</option>
+            <option value="Alive">🌝 Alive</option>
+            <option value="Dead">💀 Dead</option>
+            <option value="unknown">❓ Unknown</option>
           </select>
         </div>
       </form>
