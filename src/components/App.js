@@ -84,7 +84,7 @@ class App extends React.Component {
     } else {
       return (
         <Error
-          handleSearch={this.handleSearch()}
+          handleSearch={this.handleSearch}
           searchText={this.state.searchText}
         />
       );
@@ -121,7 +121,7 @@ class App extends React.Component {
     } else {
       return (
         <Error
-          handleSearch={this.handleSearch()}
+          handleSearch={this.handleSearch}
           searchText={this.state.searchText}
         />
       );

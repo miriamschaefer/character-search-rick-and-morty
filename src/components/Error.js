@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import { Link } from 'react-router-dom';
 
-class Error extends Component {
+class Error extends React.Component {
   render() {
     const data = this.props;
 
