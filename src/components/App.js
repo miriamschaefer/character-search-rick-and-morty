@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../stylesheets/App.scss';
 import getInfo from '../services/Api';
-import LandingPage from './LandingPage';
+// import LandingPage from './LandingPage';
 import Header from './Header';
 import CharacterList from './CharacterList';
 import CharacterInfo from './CharacterInfo';
