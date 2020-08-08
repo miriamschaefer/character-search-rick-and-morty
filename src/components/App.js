@@ -37,9 +37,11 @@ class App extends React.Component {
     this.state = {
       characters: [],
       searchText: '',
+      filterSpecies: 'All',
     };
     this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleFilterSpecies = this.handleFilterSpecies.bind(this);
   }
 
   componentDidMount() {
@@ -94,13 +96,24 @@ class App extends React.Component {
     });
   }
 
+  handleFilterSpecies(data) {
+    this.setState({ [data.key]: data.value });
+  }
+
   renderSearch() {
     const filteredCharacters = this.state.characters;
+    const filterSpecies = this.state.filterSpecies;
 
     if (filteredCharacters) {
-      return filteredCharacters.filter((character) => {
-        return character.name.toLowerCase().includes(this.state.searchText);
-      });
+      return filteredCharacters
+        .filter((character) => {
+          return character.name.toLowerCase().includes(this.state.searchText);
+        })
+        .filter((character) => {
+          return filterSpecies === 'All'
+            ? true
+            : character.species === filterSpecies;
+        });
     } else {
       return <Error />;
     }
@@ -113,6 +126,7 @@ class App extends React.Component {
         <Header />
         <Search
           handleSearch={this.handleSearch}
+          handleFilterSpecies={this.handleFilterSpecies}
           searchText={this.state.searchText}
         />
         <CharacterList characters={this.renderSearch()} />
