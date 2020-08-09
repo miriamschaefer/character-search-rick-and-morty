@@ -1,6 +1,7 @@
 import React from 'react';
 import Portal from '../../images/portal.png';
 import Header from './Header';
+import ComeIn from '../../images/come-in.png';
 import { Link } from 'react-router-dom';
 
 class LandingPage extends React.Component {
@@ -23,7 +24,9 @@ class LandingPage extends React.Component {
                 alt="Rick and Morty"
               />
             </div>
-            <h1 className="landing__title">Come in! Burgertime!</h1>
+            <div className="landing__imgs__come-in">
+              <img src={ComeIn} alt="Rick and Morty" />
+            </div>
           </Link>
         </main>
       </>
