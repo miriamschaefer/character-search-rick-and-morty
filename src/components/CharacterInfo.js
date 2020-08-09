@@ -30,21 +30,24 @@ class CharacterInfo extends Component {
     return (
       <div className="character" id={id}>
         <div className="character__card" onClick={this.handleModalContent}>
-          <div className="character__card__img">
-            <img src={image} alt={name} />
-          </div>
           <div className="character__card__close-icon">
             <Link to="/mainpage">
               <i className="fas fa-times-circle"></i>
             </Link>
           </div>
-          <div className="character__card__info">
-            <p>Full Name: {name}</p>
-            <p>Status: {this.renderStatusEmoji(status)}</p>
-            <p>Gender: {gender}</p>
-            <p>Species: {species === 'Alien' ? '👽' : '🕺🏻'} </p>
-            <p>Origin: {origin}</p>
-            <p>Number of episodes: {episodes}</p>
+          <div className="character__card__group">
+            <div className="character__card__group__img">
+              <img src={image} alt={name} />
+            </div>
+
+            <div className="character__card__group__info">
+              <p>Full Name: {name}</p>
+              <p>Status: {this.renderStatusEmoji(status)}</p>
+              <p>Gender: {gender}</p>
+              <p>Species: {species === 'Alien' ? '👽' : '🕺🏻'} </p>
+              <p>Origin: {origin}</p>
+              <p>Number of episodes: {episodes}</p>
+            </div>
           </div>
 
           <ul className="navigation">

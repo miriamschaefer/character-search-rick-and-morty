@@ -1,9 +1,9 @@
 .character {
-  width: 100vw;
-  height: 100vh;
+  overflow: hidden;
   color: $color-dark;
 
   &__card {
+    overflow: hidden;
     position: absolute;
     border-radius: 25px;
     left: 50%;
@@ -11,59 +11,67 @@
     z-index: 1;
     transform: translate(-50%, -50%);
     align-items: center;
-    width: 500px;
+    width: 300px;
     padding: 15px;
     background-color: $color-accent;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
 
-    &__img {
-      width: 200px;
-      margin-left: 25px;
+    &__close-icon {
+      text-align: left;
+      color: $color-dark;
+      font-size: rem(20);
+      transform: translate(-130px, 0);
+      margin-bottom: 10px;
+    }
 
-      @include media($desktop) {
-        height: 300px;
-        width: 300px;
-        margin-left: 0;
-      }
-
-      & img {
-        width: 100%;
-        object-fit: cover;
+    &__group {
+      display: flex;
+      align-items: center;
+      &__img {
+        width: 220px;
+        margin-left: 25px;
 
         @include media($desktop) {
           height: 300px;
           width: 300px;
           margin-left: 0;
         }
+
+        & img {
+          width: 100%;
+          object-fit: cover;
+          border-radius: 15px;
+
+          @include media($desktop) {
+            height: 300px;
+            width: 300px;
+            margin-left: 0;
+          }
+        }
       }
 
-      &__close-icon {
-        grid-column: span 2;
+      &__info {
+        margin-left: 15px;
+        text-align: left;
+        font-size: rem(14);
+        line-height: 1rem;
       }
-    }
 
-    @include media($desktop) {
-      position: fixed;
-      top: 0;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 500px;
-      transform: translate(0%, 0%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-      border-radius: 0;
+      @include media($desktop) {
+        width: 600px;
+        transform: translate(0%, 0%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: 0;
+      }
     }
   }
 }
 
 .navigation {
-  margin-top: 60px;
-  grid-column: span 2;
   display: flex;
   justify-content: center;
   align-items: center;
