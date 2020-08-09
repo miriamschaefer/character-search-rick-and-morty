@@ -1,0 +1,71 @@
+.form {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 15px 0 15px;
+  margin-bottom: 30px;
+
+  @include media($tablet) {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: right;
+  }
+
+  &__search {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 15px;
+    margin-bottom: 10px;
+
+    &__input {
+      width: 80px;
+      height: 20px;
+      @include media($tablet) {
+        width: 150px;
+      }
+    }
+    &__label {
+      font-size: rem(16);
+      margin-right: 10px;
+
+      @include media($tablet) {
+        font-size: rem(20);
+      }
+    }
+
+    &__reset {
+      margin-top: 15px;
+      margin-left: 10px;
+      color: $color-accent;
+      border: 0;
+      background-color: $color-dark;
+      font-size: rem(20);
+
+      & :active {
+        transform: translateY(4px);
+      }
+    }
+  }
+
+  &__status {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 15px;
+    &__label {
+      font-size: rem(16);
+      margin-right: 10px;
+
+      @include media($tablet) {
+        font-size: rem(20);
+      }
+    }
+    &__input {
+      width: 80px;
+      height: 28px;
+      @include media($tablet) {
+        width: 150px;
+      }
+    }
+  }
+}

@@ -1,5 +1,85 @@
 .error {
-  & p {
-    color: $color-light;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  &__title {
+    font-size: rem(30);
+    font-style: italic;
+    position: relative;
+    top: 50%;
+    width: 18em;
+    margin: 25px auto;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+  }
+
+  &__text {
+    font-size: rem(20);
+    & span {
+      color: $color-accent;
+    }
+  }
+
+  &__subtitle {
+    font-size: rem(28);
+    font-style: italic;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__img {
+    width: 180px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    animation-name: floating;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+    @keyframes floating {
+      from {
+        transform: translate(0, 0px);
+      }
+      65% {
+        transform: translate(0, 15px);
+      }
+      to {
+        transform: translate(0, -0px);
+      }
+    }
+
+    & img {
+      width: 100%;
+    }
+  }
+}
+
+.typewriter {
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    cursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes cursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
   }
 }

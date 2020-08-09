@@ -1,0 +1,63 @@
+.preview__card {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  width: 275px;
+  height: 375px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #586f7c;
+  border-radius: 25px;
+
+  &:hover {
+    background-color: $color-accent;
+    color: $color-dark;
+    transform: translatey(-20px);
+    box-shadow: -3px 65px 109px -48px rgba(173, 255, 47, 0.8);
+  }
+
+  @include media($desktop) {
+    width: 300px;
+    height: 450px;
+  }
+  &__title {
+    padding: 0 15px 0 15px;
+    margin-top: 50px;
+    font-size: rem(20);
+
+    @include media($desktop) {
+      padding: 15px;
+      margin-bottom: 0;
+      font-size: rem(26);
+    }
+  }
+
+  &__img {
+    margin-top: 0;
+    width: 200px;
+
+    @include media($desktop) {
+      width: 250px;
+    }
+
+    & img {
+      width: 100%;
+      border-radius: 15px;
+    }
+  }
+
+  &__info {
+    font-size: rem(16);
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    @include media($tablet) {
+      font-size: rem(20);
+      margin-top: 10px;
+      margin-bottom: 50px;
+    }
+    & p {
+      margin: 5px;
+    }
+  }
+}
