@@ -17,55 +17,55 @@
     display: flex;
     flex-direction: column;
 
+    @include media($desktop) {
+      width: 600px;
+    }
+
     &__close-icon {
       text-align: left;
       color: $color-dark;
       font-size: rem(20);
       transform: translate(-130px, 0);
       margin-bottom: 10px;
+
+      @include media($tablet) {
+        font-size: rem(30);
+        transform: translate(-280px, 0);
+      }
     }
 
     &__group {
       display: flex;
       align-items: center;
+      @include media($tablet) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       &__img {
         width: 220px;
-        margin-left: 25px;
 
-        @include media($desktop) {
+        @include media($tablet) {
           height: 300px;
           width: 300px;
-          margin-left: 0;
         }
 
         & img {
           width: 100%;
           object-fit: cover;
           border-radius: 15px;
-
-          @include media($desktop) {
-            height: 300px;
-            width: 300px;
-            margin-left: 0;
-          }
         }
       }
 
       &__info {
-        margin-left: 15px;
         text-align: left;
         font-size: rem(14);
         line-height: 1rem;
-      }
 
-      @include media($desktop) {
-        width: 600px;
-        transform: translate(0%, 0%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        border-radius: 0;
+        @include media($desktop) {
+          font-size: rem(20);
+          text-align: center;
+        }
       }
     }
   }

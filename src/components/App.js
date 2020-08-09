@@ -129,12 +129,10 @@ class App extends React.Component {
       );
     } else {
       return (
-        <div className="card__character__error">
-          <h3 className="card__character__error__title">
-            Hit the sack, and go home, Jack!
-          </h3>
+        <div className="error">
+          <h3 className="error__title">Hit the sack, and go home, Jack!</h3>
           <Link to="/mainpage">
-            <div className="card__character__error__img">
+            <div className="error__img">
               <img src={imgError} alt="Rick and Morty" />
             </div>
           </Link>
