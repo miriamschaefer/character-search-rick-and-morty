@@ -141,15 +141,19 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/mainpage" render={this.getMain} />
-          <Route
-            exact
-            path="/character/:id"
-            render={this.renderCharacterInfo}
-          />
-        </Switch>
+        <div className="body">
+          <div className="stars"></div>
+          <div className="twinkling"></div>
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/mainpage" render={this.getMain} />
+            <Route
+              exact
+              path="/character/:id"
+              render={this.renderCharacterInfo}
+            />
+          </Switch>
+        </div>
       </React.Fragment>
     );
   }

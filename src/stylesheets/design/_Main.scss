@@ -1,17 +1,44 @@
-body {
+.body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  color: $color-light;
   font-family: 'Karla', sans-serif;
   text-align: center;
   padding-top: 20px;
-  background-color: $color-dark;
-  display: flex;
+
+  &__title {
+    font-style: italic;
+    font-size: rem(26);
+
+    @include media($tablet) {
+      font-size: rem(42);
+    }
+  }
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+
+  border: 1px solid greenyellow;
+  max-width: 1400px;
 }
 
 .character__list {
-  width: 100vw;
   border: 1px solid greenyellow;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 1rem;
-
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+  justify-content: center;
   color: $color-light;
+
+  @include media($desktop) {
+    width: 1400px;
+  }
 }

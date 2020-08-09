@@ -31,23 +31,35 @@ class Search extends Component {
 
   render() {
     return (
-      <form>
-        <label htmlFor="search">Search for character: </label>
-        <input
-          type="text"
-          id="search"
-          placeholder="Morty"
-          onChange={this.renderSearchChild}
-          value={this.props.searchText}
-          onKeyPress={this.handleSubmit}
-        />
-        <div>
-          <label htmlFor="filterStatus" className="form__label">
+      <form className="form">
+        <div className="form__search">
+          <label htmlFor="search" className="form__search__label">
+            Search for characters:
+          </label>
+          <input
+            className="form__search__input"
+            type="text"
+            id="search"
+            placeholder="Morty"
+            onChange={this.renderSearchChild}
+            value={this.props.searchText}
+            onKeyPress={this.handleSubmit}
+          />
+          <button
+            className="form__search__reset"
+            value="Reset form"
+            onClick={this.props.resetAll}
+          >
+            <i className="fas fa-times-circle"></i>
+          </button>
+        </div>
+        <div className="form__status">
+          <label htmlFor="filterStatus" className="form__status__label">
             Status:
           </label>
           <select
             id="filterStatus"
-            className="form__input-text"
+            className="form__status__input"
             value={this.props.filterPrice}
             onChange={this.handleFilterStatusChild}
           >
@@ -57,9 +69,6 @@ class Search extends Component {
             <option value="unknown">❓ Unknown</option>
           </select>
         </div>
-        <button value="Reset form" onClick={this.props.resetAll}>
-          <i className="fas fa-times-circle"></i>
-        </button>
       </form>
     );
   }
