@@ -1,39 +1,21 @@
+.twinkling {
+  background: transparent url('../../images/twinkling.png') top repeat-y;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: block;
+  z-index: -1;
+  animation: move-background 20s linear infinite;
+}
+
 @keyframes move-background {
   from {
-    transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(-1000px, 0px, 0px);
   }
   to {
     transform: translate3d(1000px, 0px, 0px);
   }
-}
-
-.stars {
-  background-color: $color-dark;
-  background-image: url('../../images/green-stars-background.png');
-  background-repeat: repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: -1;
-}
-
-.twinkling {
-  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png');
-  background-repeat: repeat top center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: -1;
-
-  animation: move-background 20s linear infinite;
 }

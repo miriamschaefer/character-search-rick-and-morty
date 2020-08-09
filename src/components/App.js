@@ -142,7 +142,6 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className="body">
-          <div className="stars"></div>
           <div className="twinkling"></div>
           <Switch>
             <Route exact path="/" component={LandingPage} />
