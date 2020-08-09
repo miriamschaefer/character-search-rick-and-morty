@@ -29,9 +29,22 @@ body {
     padding: 0 15px 0 15px;
     font-style: italic;
     font-size: rem(26);
+    z-index: 45;
 
     @include media($tablet) {
       font-size: rem(36);
+    }
+  }
+
+  &__img {
+    position: absolute;
+    width: 300px;
+    transform: translate(0, -200px);
+    z-index: -1;
+    margin-bottom: 0;
+
+    & img {
+      width: 100%;
     }
   }
 }
@@ -39,7 +52,6 @@ body {
 .wrapper {
   margin-left: auto;
   margin-right: auto;
-
   max-width: 1400px;
 }
 

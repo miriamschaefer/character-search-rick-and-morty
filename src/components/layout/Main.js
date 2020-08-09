@@ -10,7 +10,13 @@ class Main extends React.Component {
       <>
         <Header />
         <main className="main wrapper">
-          <h1 className="main__title ">{this.props.randomQuote}</h1>
+          <h1 className="main__title ">"{this.props.randomQuote}"</h1>
+          <div className="main__img">
+            <img
+              src="https://media.giphy.com/media/gJ2TzwqdRoKoZ0KWhW/giphy.gif"
+              alt="UFO"
+            />
+          </div>
           <Search
             handleSearch={this.props.handleSearch}
             handleFilterStatus={this.props.handleFilterStatus}

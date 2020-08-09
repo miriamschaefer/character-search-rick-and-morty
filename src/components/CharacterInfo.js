@@ -54,7 +54,7 @@ class CharacterInfo extends Component {
               </Link>
             </li>
             <li className="navigation__img">
-              <Link to="/characters">
+              <Link to="/mainpage">
                 <img src={imgError} alt="Back home" />
               </Link>
             </li>
