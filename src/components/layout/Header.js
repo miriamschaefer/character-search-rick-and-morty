@@ -10,6 +10,7 @@ class Header extends React.Component {
           <div className="header__logo">
             <img src={Logo} alt="Rick and Morty logo" />
           </div>
+          <p className="header__name">Character Search</p>
         </Link>
       </header>
     );
