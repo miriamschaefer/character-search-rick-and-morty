@@ -5,7 +5,6 @@ import getInfo from '../services/Api';
 import LandingPage from './layout/LandingPage';
 import CharacterInfo from './CharacterInfo';
 import Main from './layout/Main';
-import Error from './layout/Error';
 
 //COMPONENTE FUNCIONAL
 // const App = () => {
@@ -121,7 +120,7 @@ class App extends React.Component {
         />
       );
     } else {
-      return <Error />;
+      return 'aquí no hay nada';
     }
   }
 
@@ -131,6 +130,7 @@ class App extends React.Component {
       <Main
         handleSearch={this.handleSearch}
         handleFilterStatus={this.handleFilterStatus}
+        filterStatus={this.state.filterStatus}
         searchText={this.state.searchText}
         characters={this.renderSearch()}
         resetAll={this.resetAll}

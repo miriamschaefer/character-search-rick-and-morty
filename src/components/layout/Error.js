@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import imgError from '../../images/rick-morty-error.png';
-import { Link } from 'react-router-dom';
 
 class Error extends Component {
   render() {
@@ -9,10 +8,17 @@ class Error extends Component {
     console.log(data);
     return (
       <div className="error">
-        <p>{`Whatcha doin'? There's no character who matches your search.`}</p>
-        <Link to="/">
-          <img src={imgError} alt="Rick and Morty" />
-        </Link>
+        <p>{`Lick, lick, lick my balls! Whatcha doin'? There's no character who matches your search: ${this.props.searchText}`}</p>
+        <h2 className="error__title" onClick={this.props.resetAll}>
+          Hit the sack, Jack!
+        </h2>
+        <div className="error__img">
+          <img
+            onClick={this.props.resetAll}
+            src={imgError}
+            alt="Rick and Morty"
+          />
+        </div>
       </div>
     );
   }

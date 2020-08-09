@@ -17,9 +17,17 @@ class Main extends React.Component {
             handleSearch={this.props.handleSearch}
             handleFilterStatus={this.props.handleFilterStatus}
             searchText={this.props.searchText}
+            filterStatus={this.props.filterStatus}
             resetAll={this.props.resetAll}
           />
-          <CharacterList characters={this.props.characters} />
+          <CharacterList
+            characters={this.props.characters}
+            handleSearch={this.props.handleSearch}
+            handleFilterStatus={this.props.handleFilterStatus}
+            searchText={this.props.searchText}
+            filterStatus={this.props.filterStatus}
+            resetAll={this.props.resetAll}
+          />
         </main>
         <Footer />
       </>

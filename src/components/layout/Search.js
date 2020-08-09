@@ -60,7 +60,7 @@ class Search extends Component {
           <select
             id="filterStatus"
             className="form__status__input"
-            value={this.props.filterPrice}
+            value={this.props.filterStatus}
             onChange={this.handleFilterStatusChild}
           >
             <option value="All">👯‍♀️ All</option>

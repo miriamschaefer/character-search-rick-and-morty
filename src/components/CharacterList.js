@@ -4,13 +4,21 @@ import Error from './layout/Error';
 
 class CharacterList extends React.Component {
   render() {
+    console.log(this.props);
     if (this.props.characters.length === 0) {
-      return <Error />;
+      return (
+        <Error
+          handleSearch={this.props.handleSearch}
+          handleFilterStatus={this.props.handleFilterStatus}
+          searchText={this.props.searchText}
+          filterStatus={this.props.filterStatus}
+          resetAll={this.props.resetAll}
+        />
+      );
     } else {
       const characterResult = this.props.characters.map((character) => {
         const { name, id, species, image, status, gender } = character;
 
-        console.log('consoleando props characterlist', this.props.characters);
         return (
           <CharacterPreview
             key={id}
