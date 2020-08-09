@@ -1,10 +1,10 @@
-const ENDPOINTQUOTES = 'http://loremricksum.com/api/?paragraphs=1&quotes=3';
+const ENDPOINT = 'http://loremricksum.com/api/?paragraphs=1&quotes=2';
 
 const getQuotes = () => {
-  return fetch(ENDPOINTQUOTES)
+  return fetch(ENDPOINT)
     .then((response) => response.json())
-    .then((quote) => {
-      return quote;
+    .then((data) => {
+      return data;
     });
 };
 

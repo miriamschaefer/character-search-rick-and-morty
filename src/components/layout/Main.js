@@ -10,9 +10,7 @@ class Main extends React.Component {
       <>
         <Header />
         <main className="main wrapper">
-          <h1 className="main__title">
-            Sometimes science is more art than science
-          </h1>
+          <h1 className="main__title ">{this.props.randomQuote}</h1>
           <Search
             handleSearch={this.props.handleSearch}
             handleFilterStatus={this.props.handleFilterStatus}

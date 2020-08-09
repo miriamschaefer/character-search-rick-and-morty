@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import '../stylesheets/App.scss';
 import getInfo from '../services/Api';
+import getQuote from '../services/QuotesApi';
 import LandingPage from './layout/LandingPage';
 import CharacterInfo from './CharacterInfo';
 import Main from './layout/Main';
@@ -36,6 +37,7 @@ class App extends React.Component {
       characters: [],
       searchText: '',
       filterStatus: 'All',
+      quote: '',
     };
     this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -51,6 +53,12 @@ class App extends React.Component {
       });
     });
 
+    getQuote().then((data) => {
+      this.setState({
+        quote: data.data,
+      });
+    });
+
     const retrieveInputText = localStorage.getItem('userSearch');
     if (retrieveInputText) {
       this.setState({ searchText: retrieveInputText });
@@ -63,7 +71,6 @@ class App extends React.Component {
 
   //RESET INPUTS
   resetAll(ev) {
-    console.log(this.state.filterStatus);
     ev.preventDefault();
     this.setState({ searchText: '', filterStatus: 'All' });
   }
@@ -140,6 +147,7 @@ class App extends React.Component {
   getMain() {
     return (
       <Main
+        randomQuote={this.state.quote}
         handleSearch={this.handleSearch}
         handleFilterStatus={this.handleFilterStatus}
         filterStatus={this.state.filterStatus}

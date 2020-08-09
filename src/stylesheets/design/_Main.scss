@@ -26,11 +26,12 @@ body {
   padding-top: 20px;
 
   &__title {
+    padding: 0 15px 0 15px;
     font-style: italic;
     font-size: rem(26);
 
     @include media($tablet) {
-      font-size: rem(42);
+      font-size: rem(36);
     }
   }
 }
