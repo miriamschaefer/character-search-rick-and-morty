@@ -29,10 +29,16 @@
   &__subtitle {
     font-size: rem(28);
     font-style: italic;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__img {
     width: 180px;
+    &:hover {
+      cursor: pointer;
+    }
 
     animation-name: floating;
     animation-duration: 4s;
@@ -59,7 +65,7 @@
 
 .typewriter {
   animation: typewriter 4s steps(44) 1s 1 normal both,
-    blinkTextCursor 500ms steps(44) infinite normal;
+    cursor 500ms steps(44) infinite normal;
 }
 @keyframes typewriter {
   from {
@@ -69,7 +75,7 @@
     width: 11em;
   }
 }
-@keyframes blinkTextCursor {
+@keyframes cursor {
   from {
     border-right-color: rgba(255, 255, 255, 0.75);
   }

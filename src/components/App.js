@@ -1,10 +1,11 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import '../stylesheets/App.scss';
 import getInfo from '../services/Api';
 import LandingPage from './layout/LandingPage';
 import CharacterInfo from './CharacterInfo';
 import Main from './layout/Main';
+import imgError from '../images/rick-morty-error.png';
 
 //COMPONENTE FUNCIONAL
 // const App = () => {
@@ -120,7 +121,18 @@ class App extends React.Component {
         />
       );
     } else {
-      return 'aquí no hay nada';
+      return (
+        <div className="card__character__error">
+          <h3 className="card__character__error__title">
+            Hit the sack, and go home, Jack!
+          </h3>
+          <Link to="/mainpage">
+            <div className="card__character__error__img">
+              <img src={imgError} alt="Rick and Morty" />
+            </div>
+          </Link>
+        </div>
+      );
     }
   }
 

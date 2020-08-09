@@ -7,7 +7,7 @@
   @include media($tablet) {
     flex-direction: row;
     align-items: baseline;
-    justify-content: space-between;
+    justify-content: right;
   }
 
   &__search {
@@ -33,6 +33,7 @@
     }
 
     &__reset {
+      margin-top: 15px;
       margin-left: 10px;
       color: $color-accent;
       border: 0;

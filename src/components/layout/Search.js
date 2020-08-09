@@ -45,13 +45,6 @@ class Search extends Component {
             value={this.props.searchText}
             onKeyPress={this.handleSubmit}
           />
-          <button
-            className="form__search__reset"
-            value="Reset form"
-            onClick={this.props.resetAll}
-          >
-            <i className="fas fa-times-circle"></i>
-          </button>
         </div>
         <div className="form__status">
           <label htmlFor="filterStatus" className="form__status__label">
@@ -69,6 +62,13 @@ class Search extends Component {
             <option value="unknown">❓ Unknown</option>
           </select>
         </div>
+        <button
+          className="form__search__reset"
+          value="Reset form"
+          onClick={this.props.resetAll}
+        >
+          <i className="fas fa-times-circle"></i>
+        </button>
       </form>
     );
   }
