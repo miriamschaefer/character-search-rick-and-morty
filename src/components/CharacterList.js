@@ -4,7 +4,6 @@ import Error from './layout/Error';
 
 class CharacterList extends React.Component {
   render() {
-    console.log(this.props);
     if (this.props.characters.length === 0) {
       return (
         <Error

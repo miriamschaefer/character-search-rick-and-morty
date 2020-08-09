@@ -3,15 +3,16 @@ import imgError from '../../images/rick-morty-error.png';
 
 class Error extends Component {
   render() {
-    const data = this.props;
-
-    console.log(data);
     return (
-      <div className="error">
-        <p>{`Lick, lick, lick my balls! Whatcha doin'? There's no character who matches your search: ${this.props.searchText}`}</p>
-        <h2 className="error__title" onClick={this.props.resetAll}>
+      <div className="error wrapper">
+        <h2 className="error__title typewriter">Lick, lick, lick my balls!!</h2>
+        <p className="error__text">
+          Whatcha doin'? There's no character matching your search:
+          <span>{` ${this.props.searchText}`}</span>.
+        </p>
+        <h3 className="error__subtitle" onClick={this.props.resetAll}>
           Hit the sack, Jack!
-        </h2>
+        </h3>
         <div className="error__img">
           <img
             onClick={this.props.resetAll}
