@@ -3,7 +3,6 @@
   color: $color-dark;
 
   &__card {
-    overflow: hidden;
     position: absolute;
     border-radius: 25px;
     left: 50%;
@@ -11,7 +10,7 @@
     z-index: 1;
     transform: translate(-50%, -50%);
     align-items: center;
-    width: 300px;
+    width: 350px;
     padding: 15px;
     background-color: $color-accent;
     display: flex;
@@ -19,14 +18,13 @@
 
     @include media($tablet) {
       width: 600px;
-      height: 600px;
     }
 
     &__close-icon {
       text-align: left;
       color: $color-dark;
       font-size: rem(20);
-      transform: translate(-130px, 0);
+      transform: translate(-150px, 0);
       margin-bottom: 10px;
 
       @include media($tablet) {
@@ -97,7 +95,7 @@
     color: $color-dark;
     font-size: rem(20);
 
-    @include media($desktop) {
+    @include media($tablet) {
       font-size: rem(32);
     }
   }
