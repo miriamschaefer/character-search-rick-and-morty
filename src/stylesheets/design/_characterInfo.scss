@@ -19,6 +19,7 @@
 
     @include media($tablet) {
       width: 600px;
+      height: 600px;
     }
 
     &__close-icon {
