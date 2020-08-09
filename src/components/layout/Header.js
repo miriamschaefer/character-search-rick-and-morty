@@ -6,7 +6,7 @@ class Header extends React.Component {
   render() {
     return (
       <header className="header wrapper">
-        <Link to="/mainpage">
+        <Link to="/">
           <div className="header__logo">
             <img src={Logo} alt="Rick and Morty logo" />
           </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import imgError from '../../images/rick-morty-error.png';
+import Portal from '../../images/portal.png';
 import Header from './Header';
 import { Link } from 'react-router-dom';
 
@@ -9,12 +9,22 @@ class LandingPage extends React.Component {
       <>
         <Header />
         <main className="landing">
-          <h1 className="landing__title">Nothing to see here (yet)...</h1>
-          <div className="landing__img">
-            <Link to="/mainpage">
-              <img src={imgError} alt="Rick and Morty" />
-            </Link>
-          </div>
+          <Link to="/mainpage">
+            <div className="landing__imgs">
+              <img
+                className="landing__imgs__portal"
+                src={Portal}
+                alt="Rick and Morty"
+              />
+
+              <img
+                className="landing__imgs__morty"
+                src="https://media.giphy.com/media/dxP1UmiavDWDTR6yYd/giphy.gif"
+                alt="Rick and Morty"
+              />
+            </div>
+            <h1 className="landing__title">Come in! Burgertime!</h1>
+          </Link>
         </main>
       </>
     );

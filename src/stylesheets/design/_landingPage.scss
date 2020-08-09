@@ -5,20 +5,34 @@
   align-items: center;
   color: $color-light;
   &__title {
-    font-size: 3em;
+    color: $color-accent;
+    margin-top: 120px;
+    text-align: center;
+    font-size: rem(40);
   }
 
-  &__img {
-    width: 300px;
-    &:hover {
-      animation: roll 2s infinite;
+  &__imgs {
+    margin-bottom: 50px;
+    &__morty {
+      transform: translate(0, 100px);
+      width: 250px;
+    }
+    &__portal {
+      width: 400px;
+      animation-name: floating;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
 
-      @keyframes roll {
-        0% {
-          transform: rotate(0);
+      @keyframes floating {
+        from {
+          transform: translate(0, 0px);
         }
-        100% {
-          transform: rotate(360deg);
+        65% {
+          transform: translate(0, 15px);
+        }
+        to {
+          transform: translate(0, -0px);
         }
       }
     }
