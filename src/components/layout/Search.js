@@ -61,9 +61,6 @@ class Search extends Component {
             <option value="Dead"> Dead</option>
             <option value="unknown"> Unknown</option>
           </select>
-
-          <label htmlFor="alphabetically">A - Z:</label>
-          <input type="checkbox" value="sorted" name="Sort alphabetically" />
         </div>
         <button
           className="form__search__reset"

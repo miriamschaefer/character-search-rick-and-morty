@@ -16,7 +16,6 @@ class CharacterInfo extends Component {
     }
   }
   render() {
-    console.log(this.props);
     const {
       id,
       name,
