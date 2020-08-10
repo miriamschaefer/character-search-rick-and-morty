@@ -7,7 +7,8 @@ class Error extends Component {
       <div className="error wrapper">
         <h2 className="error__title typewriter">Lick, lick, lick my balls!!</h2>
         <p className="error__text">
-          Whatcha doin'? There's no character matching your search:
+          Whatcha doin'? There's no <span>{` ${this.props.filterStatus}`}</span>{' '}
+          character matching your search:
           <span>{` ${this.props.searchText}`}</span>.
         </p>
         <h3 className="error__subtitle" onClick={this.props.resetAll}>

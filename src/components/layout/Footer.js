@@ -8,7 +8,11 @@ class Footer extends React.Component {
           <p>
             Made with <i className="fa fa-heart" aria-hidden="true"></i> by{' '}
             <a href="http://www.miriamschaefer.es" alt="Visit website">
-              Miriam Schaefer
+              Miriam Schaefer{' '}
+            </a>
+            for{' '}
+            <a href="http://www.adalab.es" alt="Visit Adalab's website">
+              Adalab
             </a>
             .
           </p>
