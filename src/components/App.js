@@ -89,8 +89,7 @@ class App extends React.Component {
     const filterStatus = this.state.filterStatus;
     const filterSort = this.state.isSorted;
 
-    console.log(filterSort);
-    console.log(filteredCharacters);
+    //FIX ME, KINDA REPETITIVE
 
     if (filteredCharacters && filterSort === true) {
       return this.sortAtoZ()
