@@ -6,6 +6,7 @@ import Footer from './Footer';
 
 class Main extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <>
         <Header />
@@ -23,6 +24,8 @@ class Main extends React.Component {
             searchText={this.props.searchText}
             filterStatus={this.props.filterStatus}
             resetAll={this.props.resetAll}
+            isSorted={this.props.isSorted}
+            handleSort={this.props.handleSort}
           />
           <CharacterList
             characters={this.props.characters}
@@ -31,6 +34,8 @@ class Main extends React.Component {
             searchText={this.props.searchText}
             filterStatus={this.props.filterStatus}
             resetAll={this.props.resetAll}
+            sort={this.props.isSorted}
+            handleSort={this.props.handleSort}
           />
         </main>
         <Footer />

@@ -6,6 +6,7 @@ class Search extends Component {
 
     this.renderSearchChild = this.renderSearchChild.bind(this);
     this.handleFilterStatusChild = this.handleFilterStatusChild.bind(this);
+    this.handleSortChild = this.handleSortChild.bind(this);
   }
 
   renderSearchChild(ev) {
@@ -23,6 +24,13 @@ class Search extends Component {
     });
   }
 
+  handleSortChild(ev) {
+    this.props.handleSort({
+      key: 'handleSort',
+      value: ev.target.checked,
+    });
+  }
+
   handleSubmit(ev) {
     if (ev.key === 'Enter') {
       ev.preventDefault();
@@ -30,6 +38,7 @@ class Search extends Component {
   }
 
   render() {
+    console.log(this.props.isSorted);
     return (
       <form className="form">
         <div className="form__search">
@@ -62,8 +71,17 @@ class Search extends Component {
             <option value="unknown"> Unknown</option>
           </select>
 
-          <label htmlFor="alphabetically">A - Z:</label>
-          <input type="checkbox" value="sorted" name="Sort alphabetically" />
+          <label htmlFor="alphabetically">
+            A - Z:
+            <input
+              unchecked="true"
+              type="checkbox"
+              id="sort"
+              name="handleSort"
+              checked={this.props.isSorted}
+              onChange={this.handleSortChild}
+            />
+          </label>
         </div>
         <button
           className="form__search__reset"

@@ -16,12 +16,14 @@ class App extends React.Component {
       searchText: '',
       filterStatus: 'All',
       quote: '',
+      isSorted: false,
     };
     this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleFilterStatus = this.handleFilterStatus.bind(this);
     this.getMain = this.getMain.bind(this);
     this.resetAll = this.resetAll.bind(this);
+    this.handleSort = this.handleSort.bind(this);
   }
 
   componentDidMount() {
@@ -66,9 +68,58 @@ class App extends React.Component {
     this.setState({ [data.key]: data.value });
   }
 
+  handleSort() {
+    this.setState((prevState) => {
+      return { isSorted: !prevState.isSorted };
+    });
+  }
+
+  //RENDER SEARCH
+
   renderSearch() {
     const filteredCharacters = this.state.characters;
     const filterStatus = this.state.filterStatus;
+    const filterSort = this.state.isSorted;
+
+    console.log(filterSort);
+    console.log(filteredCharacters);
+
+    if (filteredCharacters) {
+      return filteredCharacters
+        .filter((character) => {
+          return character.name.toLowerCase().includes(this.state.searchText);
+        })
+        .filter((character) => {
+          return filterStatus === 'All'
+            ? true
+            : character.status === filterStatus;
+        })
+        .filter((character) => {
+          return filterSort === true
+            ? filteredCharacters.sort((a, b) =>
+                a.name.toUpperCase().localeCompare(b.name.toUpperCase())
+              )
+            : filteredCharacters;
+        });
+    }
+
+    //PRIMERA VERSIÓN
+
+    // if (filteredCharacters) {
+    //   return filteredCharacters
+    //     .filter((character) => {
+    //       return character.name.toLowerCase().includes(this.state.searchText);
+    //     })
+    //     .filter((character) => {
+    //       return filterStatus === 'All'
+    //         ? true
+    //         : character.status === filterStatus;
+    //     });
+    // } else if (filterSort === true) {
+    //   return filteredCharacters.sort((a, b) =>
+    //     a.name.toUpperCase().localeCompare(b.name.toLowerCase())
+    //   );
+    // }
 
     if (filteredCharacters) {
       return filteredCharacters
@@ -81,11 +132,17 @@ class App extends React.Component {
             : character.status === filterStatus;
         });
     }
+
+    // sortAToZ() {
+    //   if (isSorted === true) {
+
+    //   }
+
+    // }
   }
-  //RENDER CHARACTERS
+  //RENDER CHARACTER INFO
 
   renderCharacterInfo(props) {
-    console.log(props.match.params.id);
     const characterId = props.match.params.id;
     const character = this.state.characters.find(
       (character) => character.id === parseInt(characterId)
@@ -130,6 +187,8 @@ class App extends React.Component {
         searchText={this.state.searchText}
         characters={this.renderSearch()}
         resetAll={this.resetAll}
+        handleSort={this.handleSort}
+        isSorted={this.state.isSorted}
       />
     );
   }
