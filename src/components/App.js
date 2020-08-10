@@ -52,7 +52,7 @@ class App extends React.Component {
   //RESET INPUTS
   resetAll(ev) {
     ev.preventDefault();
-    this.setState({ searchText: '', filterStatus: 'All' });
+    this.setState({ searchText: '', filterStatus: 'All', isSorted: false });
   }
 
   //SEARCH AND FILTERS
@@ -74,6 +74,14 @@ class App extends React.Component {
     });
   }
 
+  sortAtoZ() {
+    const sortedAlphabetically = [...this.state.characters];
+
+    return sortedAlphabetically.sort((a, b) =>
+      a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+    );
+  }
+
   //RENDER SEARCH
 
   renderSearch() {
@@ -84,8 +92,8 @@ class App extends React.Component {
     console.log(filterSort);
     console.log(filteredCharacters);
 
-    if (filteredCharacters) {
-      return filteredCharacters
+    if (filteredCharacters && filterSort === true) {
+      return this.sortAtoZ()
         .filter((character) => {
           return character.name.toLowerCase().includes(this.state.searchText);
         })
@@ -93,35 +101,8 @@ class App extends React.Component {
           return filterStatus === 'All'
             ? true
             : character.status === filterStatus;
-        })
-        .filter((character) => {
-          return filterSort === true
-            ? filteredCharacters.sort((a, b) =>
-                a.name.toUpperCase().localeCompare(b.name.toUpperCase())
-              )
-            : filteredCharacters;
         });
-    }
-
-    //PRIMERA VERSIÓN
-
-    // if (filteredCharacters) {
-    //   return filteredCharacters
-    //     .filter((character) => {
-    //       return character.name.toLowerCase().includes(this.state.searchText);
-    //     })
-    //     .filter((character) => {
-    //       return filterStatus === 'All'
-    //         ? true
-    //         : character.status === filterStatus;
-    //     });
-    // } else if (filterSort === true) {
-    //   return filteredCharacters.sort((a, b) =>
-    //     a.name.toUpperCase().localeCompare(b.name.toLowerCase())
-    //   );
-    // }
-
-    if (filteredCharacters) {
+    } else {
       return filteredCharacters
         .filter((character) => {
           return character.name.toLowerCase().includes(this.state.searchText);
@@ -132,14 +113,8 @@ class App extends React.Component {
             : character.status === filterStatus;
         });
     }
-
-    // sortAToZ() {
-    //   if (isSorted === true) {
-
-    //   }
-
-    // }
   }
+
   //RENDER CHARACTER INFO
 
   renderCharacterInfo(props) {
