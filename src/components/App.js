@@ -58,7 +58,6 @@ class App extends React.Component {
   //SEARCH AND FILTERS
 
   handleSearch(data) {
-    console.log(data);
     this.setState({
       [data.key]: data.value,
     });
@@ -122,7 +121,6 @@ class App extends React.Component {
       (character) => character.id === parseInt(characterId)
     );
 
-    console.log(character);
     if (character) {
       return (
         <CharacterInfo
