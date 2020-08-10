@@ -56,11 +56,14 @@ class Search extends Component {
             value={this.props.filterStatus}
             onChange={this.handleFilterStatusChild}
           >
-            <option value="All">👯‍♀️ All</option>
-            <option value="Alive">🌝 Alive</option>
-            <option value="Dead">💀 Dead</option>
-            <option value="unknown">❓ Unknown</option>
+            <option value="All">All</option>
+            <option value="Alive"> Alive</option>
+            <option value="Dead"> Dead</option>
+            <option value="unknown"> Unknown</option>
           </select>
+
+          <label htmlFor="alphabetically">A - Z:</label>
+          <input type="checkbox" value="sorted" name="Sort alphabetically" />
         </div>
         <button
           className="form__search__reset"
