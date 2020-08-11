@@ -6,6 +6,7 @@ class Search extends Component {
 
     this.renderSearchChild = this.renderSearchChild.bind(this);
     this.handleFilterStatusChild = this.handleFilterStatusChild.bind(this);
+    this.handleGenderChild = this.handleGenderChild.bind(this);
   }
 
   renderSearchChild(ev) {
@@ -23,6 +24,13 @@ class Search extends Component {
     });
   }
 
+  handleGenderChild(ev) {
+    this.props.handleGender({
+      key: 'handleGender',
+      value: ev.target.checked,
+    });
+  }
+
   handleSubmit(ev) {
     if (ev.key === 'Enter') {
       ev.preventDefault();
@@ -30,6 +38,7 @@ class Search extends Component {
   }
 
   render() {
+    console.log(this.props.isFemale);
     return (
       <form className="form">
         <div className="form__search">
@@ -62,6 +71,15 @@ class Search extends Component {
             <option value="unknown"> Unknown</option>
           </select>
         </div>
+        <label htmlFor="genderFemale">Female:</label>
+        <input
+          type="checkbox"
+          id="filterGender"
+          name="female"
+          onChange={this.handleGenderChild}
+          checked={this.props.isFemale}
+        />
+
         <button
           className="form__search__reset"
           value="Reset form"

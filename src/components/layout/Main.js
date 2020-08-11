@@ -23,6 +23,8 @@ class Main extends React.Component {
             searchText={this.props.searchText}
             filterStatus={this.props.filterStatus}
             resetAll={this.props.resetAll}
+            handleGender={this.props.handleGender}
+            isFemale={this.props.isFemale}
           />
           <CharacterList
             characters={this.props.characters}
