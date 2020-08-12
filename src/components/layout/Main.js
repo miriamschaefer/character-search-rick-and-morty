@@ -25,6 +25,8 @@ class Main extends React.Component {
             resetAll={this.props.resetAll}
             handleGender={this.props.handleGender}
             isFemale={this.props.isFemale}
+            isOrigin={this.props.isOrigin}
+            handleOrigin={this.props.handleOrigin}
           />
           <CharacterList
             favCharacters={this.props.favCharacters}

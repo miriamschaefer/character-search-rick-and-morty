@@ -7,6 +7,7 @@ class Search extends Component {
     this.renderSearchChild = this.renderSearchChild.bind(this);
     this.handleFilterStatusChild = this.handleFilterStatusChild.bind(this);
     this.handleGenderChild = this.handleGenderChild.bind(this);
+    this.handleOriginChild = this.handleOriginChild.bind(this);
   }
 
   renderSearchChild(ev) {
@@ -27,6 +28,13 @@ class Search extends Component {
   handleGenderChild(ev) {
     this.props.handleGender({
       key: 'handleGender',
+      value: ev.target.checked,
+    });
+  }
+
+  handleOriginChild(ev) {
+    this.props.handleOrigin({
+      key: 'handleOrigin',
       value: ev.target.checked,
     });
   }
@@ -79,7 +87,14 @@ class Search extends Component {
           onChange={this.handleGenderChild}
           checked={this.props.isFemale}
         />
-
+        <label htmlFor="origin">Same origin:</label>
+        <input
+          type="checkbox"
+          id="filterOrigin"
+          name="female"
+          onChange={this.handleOriginChild}
+          checked={this.props.isOrigin}
+        />
         <button
           className="form__search__reset"
           value="Reset form"

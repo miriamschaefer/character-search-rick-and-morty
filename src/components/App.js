@@ -18,6 +18,7 @@ class App extends React.Component {
       filterStatus: 'All',
       quote: '',
       isFemale: false,
+      isOrigin: false,
     };
     this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -26,6 +27,7 @@ class App extends React.Component {
     this.resetAll = this.resetAll.bind(this);
     this.handleGender = this.handleGender.bind(this);
     this.favHandler = this.favHandler.bind(this);
+    this.handleOrigin = this.handleOrigin.bind(this);
   }
 
   componentDidMount() {
@@ -75,6 +77,12 @@ class App extends React.Component {
     });
   }
 
+  handleOrigin() {
+    this.setState((prevState) => {
+      return { isOrigin: !prevState.isOrigin };
+    });
+  }
+
   renderSearch() {
     const filteredCharacters = this.state.characters;
     const filterStatus = this.state.filterStatus;
@@ -93,6 +101,11 @@ class App extends React.Component {
         .filter((character) => {
           return filterGender === true
             ? character.gender.includes('Female')
+            : true;
+        })
+        .filter((character) => {
+          return this.state.isOrigin
+            ? character.origin.name === character.location.name
             : true;
         });
     }
@@ -152,6 +165,7 @@ class App extends React.Component {
 
   //RENDER MAINPAGE
   getMain() {
+    console.log(this.state.isOrigin);
     return (
       <Main
         randomQuote={this.state.quote}
@@ -165,6 +179,8 @@ class App extends React.Component {
         isFemale={this.state.isFemale}
         favHandler={this.favHandler}
         favCharacters={this.state.favCharacters}
+        isOrigin={this.state.isOrigin}
+        handleOrigin={this.handleOrigin}
       />
     );
   }
