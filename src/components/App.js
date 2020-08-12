@@ -13,10 +13,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       characters: [],
+      favCharacters: [],
       searchText: '',
       filterStatus: 'All',
       quote: '',
-      isFemale: true,
+      isFemale: false,
     };
     this.renderCharacterInfo = this.renderCharacterInfo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -24,6 +25,7 @@ class App extends React.Component {
     this.getMain = this.getMain.bind(this);
     this.resetAll = this.resetAll.bind(this);
     this.handleGender = this.handleGender.bind(this);
+    this.favHandler = this.favHandler.bind(this);
   }
 
   componentDidMount() {
@@ -95,6 +97,24 @@ class App extends React.Component {
         });
     }
   }
+
+  favHandler(clickedId) {
+    const favCharacters = this.state.favCharacters;
+
+    if (favCharacters.includes(clickedId)) {
+      const selectedCharacter = clickedId;
+
+      const unfavedCharacter = favCharacters.filter(
+        (character) => character !== selectedCharacter
+      );
+
+      this.setState({ favCharacters: unfavedCharacter });
+    } else {
+      favCharacters.push(clickedId);
+      this.setState({ favCharacters: favCharacters });
+    }
+  }
+
   //RENDER CHARACTERS
 
   renderCharacterInfo(props) {
@@ -143,11 +163,14 @@ class App extends React.Component {
         resetAll={this.resetAll}
         handleGender={this.handleGender}
         isFemale={this.state.isFemale}
+        favHandler={this.favHandler}
+        favCharacters={this.state.favCharacters}
       />
     );
   }
 
   render() {
+    console.log(this.state.favCharacters);
     return (
       <React.Fragment>
         <div className="body">

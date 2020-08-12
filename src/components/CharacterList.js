@@ -27,6 +27,8 @@ class CharacterList extends React.Component {
             species={species}
             status={status}
             gender={gender}
+            favHandler={this.props.favHandler}
+            favCharacters={this.props.favCharacters}
           />
         );
       });

@@ -27,6 +27,8 @@ class Main extends React.Component {
             isFemale={this.props.isFemale}
           />
           <CharacterList
+            favCharacters={this.props.favCharacters}
+            favHandler={this.props.favHandler}
             characters={this.props.characters}
             handleSearch={this.props.handleSearch}
             handleFilterStatus={this.props.handleFilterStatus}
