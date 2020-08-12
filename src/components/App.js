@@ -26,6 +26,14 @@ class App extends React.Component {
     this.handleSort = this.handleSort.bind(this);
   }
 
+  getQuote() {
+    getQuote().then((data) => {
+      this.setState({
+        quote: data.data,
+      });
+    });
+  }
+
   componentDidMount() {
     getInfo().then((data) => {
       this.setState({
@@ -33,11 +41,8 @@ class App extends React.Component {
       });
     });
 
-    getQuote().then((data) => {
-      this.setState({
-        quote: data.data,
-      });
-    });
+    this.getQuote();
+    this.intervalId = setInterval(this.getQuote.bind(this), 15000);
 
     const retrieveInputText = localStorage.getItem('userSearch');
     if (retrieveInputText) {
@@ -47,6 +52,10 @@ class App extends React.Component {
 
   componentDidUpdate() {
     localStorage.setItem('userSearch', this.state.searchText);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
   }
 
   //RESET INPUTS
