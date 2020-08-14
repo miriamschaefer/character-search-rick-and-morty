@@ -75,6 +75,7 @@ class Search extends Component {
             A - Z:{' '}
           </label>
           <input
+            className="form__atoz__input"
             unchecked="true"
             type="checkbox"
             id="sort"

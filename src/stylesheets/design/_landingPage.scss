@@ -10,7 +10,6 @@
   }
 
   &__imgs {
-    margin-bottom: 50px;
     @include media($tablet) {
       margin-top: 0;
     }
@@ -18,13 +17,13 @@
       width: 150px;
       @include media($tablet) {
         transform: translate(0, 100px);
-        width: 250px;
+        width: 200px;
       }
     }
     &__portal {
       width: 250px;
       @include media($tablet) {
-        width: 300px;
+        width: 250px;
       }
       animation-name: floating;
       animation-duration: 4s;
@@ -44,10 +43,10 @@
       }
     }
     &__come-in {
-      width: 150px;
-
+      margin-top: 30px;
+      width: 120px;
       @include media($tablet) {
-        transform: translate(0, 50px);
+        margin-bottom: 0;
       }
       margin-left: auto;
       margin-right: auto;

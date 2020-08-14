@@ -68,8 +68,15 @@
       }
     }
   }
-  &__atoz__label {
-    margin-left: 15px;
-    margin-right: 10px;
+  &__atoz {
+    &__label {
+      margin-left: 15px;
+      margin-right: 10px;
+      margin-bottom: 3px;
+    }
+
+    &__input {
+      margin-bottom: 5px;
+    }
   }
 }
