@@ -71,17 +71,17 @@ class Search extends Component {
             <option value="unknown"> Unknown</option>
           </select>
 
-          <label htmlFor="alphabetically">
-            A - Z:
-            <input
-              unchecked="true"
-              type="checkbox"
-              id="sort"
-              name="handleSort"
-              checked={this.props.isSorted}
-              onChange={this.handleSortChild}
-            />
+          <label htmlFor="alphabetically" className="form__atoz__label">
+            A - Z:{' '}
           </label>
+          <input
+            unchecked="true"
+            type="checkbox"
+            id="sort"
+            name="handleSort"
+            checked={this.props.isSorted}
+            onChange={this.handleSortChild}
+          />
         </div>
         <button
           className="form__search__reset"
