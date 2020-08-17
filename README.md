@@ -16,5 +16,3 @@ Also short and sweet:
 
 - Landing page with CSS animated background and gifs, cause we **do** love our gifs.
 - Main page where everything else is rendered: a lovely header with a cool logo, a random quote title which will re-load everytime you update the page - I know, cool -, the search tool with filters and reset button, and finally, the character search.
-
-prueba
